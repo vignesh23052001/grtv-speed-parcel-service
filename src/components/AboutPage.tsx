@@ -1,15 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   ShieldCheck,
   Truck,
-  Users,
   Navigation,
   Sparkles,
   ArrowRight,
   PackageCheck,
   Clock,
   Wallet,
-  Warehouse,
 } from "lucide-react";
 import SiteHeader, { type MarketingPage, type ServiceType } from "./marketing/SiteHeader";
 import SiteFooter from "./marketing/SiteFooter";
@@ -77,7 +75,15 @@ const PROCESS = [
   },
 ];
 
-export default function AboutPage({ onGetStarted, onNavigate, onServiceSelect, loggedIn, profileName, profileRole, onSignOut }: AboutPageProps) {
+export default function AboutPage({
+  onGetStarted,
+  onNavigate,
+  onServiceSelect,
+  loggedIn,
+  profileName,
+  profileRole,
+  onSignOut,
+}: AboutPageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -142,7 +148,9 @@ export default function AboutPage({ onGetStarted, onNavigate, onServiceSelect, l
               className="fade-up transition-all duration-700 opacity-0 translate-y-10 text-center md:text-left"
               style={{ transitionDelay: `${i * 90}ms` }}
             >
-              <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-brand-300 to-accent-400 bg-clip-text text-transparent">{s.value}</div>
+              <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-brand-300 to-accent-400 bg-clip-text text-transparent">
+                {s.value}
+              </div>
               <div className="text-ink-400 text-sm mt-1">{s.label}</div>
             </div>
           ))}
@@ -168,10 +176,10 @@ export default function AboutPage({ onGetStarted, onNavigate, onServiceSelect, l
           </div>
           <div className="fade-up transition-all duration-700 opacity-0 translate-y-10 grid grid-cols-2 gap-4" style={{ transitionDelay: "120ms" }}>
             <div className="rounded-2xl overflow-hidden h-48 bg-ink-200 shadow-card border border-ink-100 group">
-              <img src="/public/homepage/coimbatore.png" alt="Delivery truck loading" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <img src="/homepage/coimbatore.png" alt="Delivery truck loading" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
             </div>
             <div className="rounded-2xl overflow-hidden h-48 mt-6 bg-ink-200 shadow-card border border-ink-100 group">
-              <img src="/public/homepage/madurai.png" alt="Warehouse hub operations" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <img src="/homepage/madurai.png" alt="Warehouse hub operations" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
             </div>
           </div>
         </div>
@@ -222,7 +230,9 @@ export default function AboutPage({ onGetStarted, onNavigate, onServiceSelect, l
                   className="fade-up transition-all duration-700 opacity-0 translate-y-10 group relative rounded-2xl bg-white border border-ink-100 p-6 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all"
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <span className="absolute -top-4 -left-2 text-5xl font-black text-ink-100">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="absolute -top-4 -left-2 text-5xl font-black text-ink-100 select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <div className="relative h-12 w-12 grid place-items-center rounded-xl bg-brand-gradient text-white mb-4 shadow-brand-glow transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                     <Icon className="h-6 w-6" />
                   </div>
