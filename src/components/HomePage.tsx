@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  Truck, ArrowRight, MapPin, ShieldCheck, Wallet,
-  ChevronLeft, ChevronRight, ArrowUpRight, X, ArrowDown,
+  Truck, ArrowRight, MapPin, PackageCheck, ShieldCheck, Clock, Wallet,
+  Warehouse, Users, Boxes, CheckCircle2, Star,
+  Sprout, HardHat, Zap, ShoppingCart, Factory, Pill, Shirt, Package,
+  ChevronLeft, ChevronRight, Quote, ChevronDown, HelpCircle, ArrowUpRight, Plus, X, ArrowDown,
 } from 'lucide-react';
 import SiteHeader, { type MarketingPage, type ServiceType } from './marketing/SiteHeader';
 import SiteFooter from './marketing/SiteFooter';
@@ -22,25 +24,25 @@ const STEPS = [
     step: 'Step 1', 
     title: 'Request a Quote', 
     desc: 'Share your pickup and drop-off details across Tamil Nadu, Bengaluru, or Kerala and get an instant, transparent price.', 
-    img: '/homepage/our serviceimg4.png' 
+    img: '/public/homepage/2.png' 
   },
   { 
     step: 'Step 2', 
     title: 'Schedule Pickup', 
     desc: 'Pick a convenient time slot and our team collects your parcel or freight directly from your doorstep.', 
-    img: '/homepage/1.png' 
+    img: '/public/homepage/1.png' 
   },
   { 
     step: 'Step 3', 
     title: 'Safe Transport', 
     desc: 'Your shipment moves through our tracked hub network with real-time GPS visibility at every stage.', 
-    img: '/homepage/our serviceimg2.png' 
+    img: '/public/homepage/our serviceimg2.png' 
   },
   { 
     step: 'Step 4', 
     title: 'On-Time Delivery', 
     desc: 'OTP-verified proof of delivery straight to the recipient — fast, safe, and always on schedule.', 
-    img: '/homepage/2.png' 
+    img: '/public/homepage/our serviceimg4.png' 
   },
 ];
 
@@ -52,24 +54,24 @@ const BENEFITS = [
 ];
 
 const CITIES = [
-  { title: 'Chennai', state: 'Tamil Nadu', img: '/homepage/Chennai.png' },
-  { title: 'Coimbatore', state: 'Tamil Nadu', img: '/homepage/coimbatore.png' },
-  { title: 'Bengaluru', state: 'Karnataka', img: '/homepage/Bengaluru.png' },
-  { title: 'Madurai', state: 'Tamil Nadu', img: '/homepage/madurai.png' },
-  { title: 'Kochi', state: 'Kerala', img: '/homepage/1.png' },
-  { title: 'Salem', state: 'Tamil Nadu', img: '/homepage/our serviceimg2.png' },
-  { title: 'Tiruppur', state: 'Tamil Nadu', img: '/homepage/tiruppur.png' },
-  { title: 'Thiruvananthapuram', state: 'Kerala', img: '/homepage/our serviceimg4.png' },
-  { title: 'Erode', state: 'Tamil Nadu', img: '/homepage/erode.png' },
+  { title: 'Chennai', state: 'Tamil Nadu', img: '/public/homepage/Chennai.png' },
+  { title: 'Coimbatore', state: 'Tamil Nadu', img: '/public/homepage/Coimbatore.png' },
+  { title: 'Bengaluru', state: 'Karnataka', img: '/public/homepage/Bengaluru.png' },
+  { title: 'Madurai', state: 'Tamil Nadu', img: '/public/homepage/Madurai.png' },
+  { title: 'Kochi', state: 'Kerala', img: '/public/homepage/our serviceimg2.png' },
+  { title: 'Salem', state: 'Tamil Nadu', img: '/public/homepage/2.png' },
+  { title: 'Tiruppur', state: 'Tamil Nadu', img: '/public/homepage/Tiruppur.png' },
+  { title: 'Thiruvananthapuram', state: 'Kerala', img: '/public/homepage/our serviceimg4.png' },
+  { title: 'Erode', state: 'Tamil Nadu', img: '/public/homepage/Erode.png' },
 ];
 
 const REVIEWS = [
-  { name: 'Karthik Raman', role: 'E-commerce Seller, Coimbatore', text: 'We ship 50+ parcels a day across Tamil Nadu and GRTV has never missed a pickup window. Tracking is spot on.', avatar: '/homepage/b1.png' },
-  { name: 'Divya Nair', role: 'Boutique Owner, Kochi', text: 'Doorstep pickup and fair pricing made switching easy. My customers get their orders faster than before.', avatar: '/homepage/g1.png' },
-  { name: 'Arjun Sridhar', role: 'Wholesale Trader, Bengaluru', text: 'FTL booking for bulk freight is straightforward and the e-POD proof of delivery keeps our accounts clean.', avatar: '/homepage/b2.png' },
-  { name: 'Meena Subramaniam', role: 'Regular Customer, Salem', text: 'I track every parcel from pickup to delivery on my phone. No more calling to ask where my shipment is.', avatar: '/homepage/g3.png' },
-  { name: 'Vishnu Prasad', role: 'Textile Exporter, Tiruppur', text: 'Reliable freight forwarding between our Tiruppur warehouse and hubs across the state. Consistent and on time.', avatar: '/homepage/b3.png' },
-  { name: 'Lakshmi Priya', role: 'Home Business Owner, Madurai', text: 'Counter booking at the local hub is quick and the staff always explain charges clearly upfront.', avatar: '/homepage/g2.png' },
+  { name: 'Karthik Raman', role: 'E-commerce Seller, Coimbatore', text: 'We ship 50+ parcels a day across Tamil Nadu and GRTV has never missed a pickup window. Tracking is spot on.', avatar: '/public/homepage/b1.png' },
+  { name: 'Divya Nair', role: 'Boutique Owner, Kochi', text: 'Doorstep pickup and fair pricing made switching easy. My customers get their orders faster than before.', avatar: '/public/homepage/g1.png' },
+  { name: 'Arjun Sridhar', role: 'Wholesale Trader, Bengaluru', text: 'FTL booking for bulk freight is straightforward and the e-POD proof of delivery keeps our accounts clean.', avatar: '/public/homepage/b2.png' },
+  { name: 'Meena Subramaniam', role: 'Regular Customer, Salem', text: 'I track every parcel from pickup to delivery on my phone. No more calling to ask where my shipment is.', avatar: '/public/homepage/g2.png' },
+  { name: 'Vishnu Prasad', role: 'Textile Exporter, Tiruppur', text: 'Reliable freight forwarding between our Tiruppur warehouse and hubs across the state. Consistent and on time.', avatar: '/public/homepage/b3.png' },
+  { name: 'Lakshmi Priya', role: 'Home Business Owner, Madurai', text: 'Counter booking at the local hub is quick and the staff always explain charges clearly upfront.', avatar: '/public/homepage/g3.png' },
 ];
 
 const FAQS = [
@@ -82,16 +84,15 @@ const FAQS = [
 
 export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, anchor, loggedIn, profileName, profileRole, onSignOut }: HomePageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
   const destScrollRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!anchor) return;
-    const timer = setTimeout(() => {
+    const t = setTimeout(() => {
       document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
-    return () => clearTimeout(timer);
+    return () => clearTimeout(t);
   }, [anchor]);
 
   useEffect(() => {
@@ -118,32 +119,23 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
     destScrollRef.current?.scrollBy({ left: dir * 320, behavior: 'smooth' });
   }
 
-  function handleReviewPrev() {
-    setActiveReviewIndex((prev) => (prev === 0 ? REVIEWS.length - 1 : prev - 1));
-  }
-
-  function handleReviewNext() {
-    setActiveReviewIndex((prev) => (prev === REVIEWS.length - 1 ? 0 : prev + 1));
-  }
-
   return (
     <div id="top" ref={containerRef} className="min-h-screen bg-[#FCFCFC] text-[#111827] overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative w-full min-h-screen overflow-hidden bg-slate-950 flex flex-col justify-between p-6 sm:p-12 text-white">
-        {/* Mobile View Hero Image */}
-        <img
-          src="/heroimagemobile1.png"
-          alt="GRTV Speed Parcel Service Mobile"
-          className="block sm:hidden absolute inset-0 w-full h-full object-cover object-top z-0"
-        />
-
-        {/* Laptop/Desktop View Hero Image */}
-        <img
-          src="/heroimage.png"
-          alt="GRTV Speed Parcel Service Desktop"
-          className="hidden sm:block absolute inset-0 w-full h-full object-cover object-top z-0"
-        />
-
+      <section className="relative w-full min-h-screen overflow-hidden bg-ink-950 flex flex-col justify-between p-6 sm:p-12 text-white">
+        <h1 className="sr-only">
+          GRTV Speed Parcel Service: Parcel &amp; Freight Transport across Tamil Nadu, Karnataka and Kerala
+        </h1>
+        <picture>
+          <source media="(max-width: 639px)" srcSet="/heroimage-mobile.png" />
+          <img
+            src="/heroimage.png"
+            alt="GRTV Speed Parcel Service - parcel and freight transport in Tamil Nadu"
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-top z-0"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/30 z-0" />
 
         <div className="relative z-50 w-full">
@@ -167,21 +159,21 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
           <div className="lg:col-span-5 fade-up transition-all duration-700 opacity-0 translate-y-10">
             <span className="text-xs text-gray-500 font-medium block mb-2">Our Services</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4">
-              <span className="px-2 py-0.5 rounded">Holistic</span><br />
+              <span className=" px-2 py-0.5 rounded">Holistic</span><br />
               Transport &amp;<br />
               Logistics
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-sm">
               Our logistics services are built for South India — from LTL parcel booking and FTL freight to warehousing across Tamil Nadu, Bengaluru, and Kerala.
             </p>
-            <button onClick={onGetStarted} className="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-lg text-xs font-semibold hover:bg-gray-800 transition cursor-pointer">
+            <button onClick={onGetStarted} className="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-lg text-xs font-semibold hover:bg-gray-800 transition">
               Explore Services <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
             <div className="fade-up transition-all duration-700 opacity-0 translate-y-10 relative rounded-2xl overflow-hidden group h-80 shadow-sm border border-gray-100" style={{ transitionDelay: '100ms' }}>
-              <img src="/homepage/1.png" alt="Freight Forwarding" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img loading="lazy" decoding="async" src="/public/homepage/1.png" alt="Freight forwarding service by GRTV Speed Parcel Service" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-between">
                 <div className="flex justify-end">
                   <span className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
@@ -196,7 +188,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
             </div>
 
             <div className="fade-up transition-all duration-700 opacity-0 translate-y-10 relative rounded-2xl overflow-hidden group h-80 shadow-sm border border-gray-100" style={{ transitionDelay: '200ms' }}>
-              <img src="/homepage/2.png" alt="Warehousing" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img loading="lazy" decoding="async" src="/public/homepage/2.png" alt="Warehousing and storage service by GRTV Speed Parcel Service" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-between">
                 <div className="flex justify-end">
                   <span className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
@@ -235,6 +227,8 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
 
       {/* How We Move Your Products */}
       <section className="relative bg-[#050505] text-white py-20 overflow-hidden" id="how-it-works">
+        <div className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-brand-600/25 blur-3xl animate-float" />
+        <div className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-accent-500/15 blur-3xl animate-float [animation-delay:1.3s]" />
         <div className="max-w-[1140px] mx-auto px-6 relative">
           <div className="grid lg:grid-cols-[1.1fr_1fr_1fr] gap-6 items-start">
             <div className="flex flex-col gap-6">
@@ -248,7 +242,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
               </div>
 
               <div className="fade-up transition-all duration-700 opacity-0 translate-y-10 mt-4" style={{ transitionDelay: '150ms' }}>
-                <img src={STEPS[2].img} alt={STEPS[2].title} className="w-full h-44 object-cover rounded-xl mb-4" />
+                <img loading="lazy" decoding="async" src={STEPS[2].img} alt={STEPS[2].title} className="w-full h-44 object-cover rounded-xl mb-4" />
                 <span className="inline-block bg-[#1B59F8] text-white text-xs font-medium px-2 py-0.5 rounded mb-2">
                   Step 3
                 </span>
@@ -259,7 +253,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
 
             <div className="flex flex-col gap-8">
               <div className="fade-up transition-all duration-700 opacity-0 translate-y-10" style={{ transitionDelay: '80ms' }}>
-                <img src={STEPS[0].img} alt={STEPS[0].title} className="w-full h-44 object-cover rounded-xl mb-4" />
+                <img loading="lazy" decoding="async" src={STEPS[0].img} alt={STEPS[0].title} className="w-full h-44 object-cover rounded-xl mb-4" />
                 <span className="inline-block bg-[#1B59F8] text-white text-xs font-medium px-2 py-0.5 rounded mb-2">
                   Step 1
                 </span>
@@ -268,7 +262,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
               </div>
 
               <div className="fade-up transition-all duration-700 opacity-0 translate-y-10" style={{ transitionDelay: '230ms' }}>
-                <img src={STEPS[3].img} alt={STEPS[3].title} className="w-full h-44 object-cover rounded-xl mb-4" />
+                <img loading="lazy" decoding="async" src={STEPS[3].img} alt={STEPS[3].title} className="w-full h-44 object-cover rounded-xl mb-4" />
                 <span className="inline-block bg-[#1B59F8] text-white text-xs font-medium px-2 py-0.5 rounded mb-2">
                   Step 4
                 </span>
@@ -279,7 +273,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
 
             <div className="flex flex-col justify-between h-full pt-1 sm:pt-0">
               <div className="fade-up transition-all duration-700 opacity-0 translate-y-10" style={{ transitionDelay: '120ms' }}>
-                <img src={STEPS[1].img} alt={STEPS[1].title} className="w-full h-44 object-cover rounded-xl mb-4" />
+                <img loading="lazy" decoding="async" src={STEPS[1].img} alt={STEPS[1].title} className="w-full h-44 object-cover rounded-xl mb-4" />
                 <span className="inline-block bg-[#1B59F8] text-white text-xs font-medium px-2 py-0.5 rounded mb-2">
                   Step 2
                 </span>
@@ -288,7 +282,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
               </div>
 
               <div className="flex justify-end mt-12">
-                <button onClick={onGetStarted} className="bg-[#FFAE00] text-black text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-amber-400 transition inline-flex items-center gap-1 shadow-md active:scale-[0.98] cursor-pointer">
+                <button onClick={onGetStarted} className="bg-[#FFAE00] text-black text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-amber-400 transition inline-flex items-center gap-1 shadow-md active:scale-[0.98]">
                   Book now ↗
                 </button>
               </div>
@@ -340,15 +334,15 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
             </div>
 
             <div className="flex items-center gap-4">
-              <button onClick={onGetStarted} className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 text-xs font-semibold hover:bg-gray-50 transition cursor-pointer">
+              <button onClick={onGetStarted} className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 text-xs font-semibold hover:bg-gray-50 transition">
                 Book a Shipment <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
               
               <div className="flex gap-2">
-                <button onClick={() => scrollDestinations(-1)} aria-label="Scroll left" className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition cursor-pointer">
+                <button onClick={() => scrollDestinations(-1)} className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
                   <ChevronLeft className="w-4 h-4 text-gray-600" />
                 </button>
-                <button onClick={() => scrollDestinations(1)} aria-label="Scroll right" className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition cursor-pointer">
+                <button onClick={() => scrollDestinations(1)} className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
                   <ChevronRight className="w-4 h-4 text-gray-600" />
                 </button>
               </div>
@@ -362,7 +356,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
                 className="fade-up transition-all duration-700 opacity-0 translate-y-10 shrink-0 w-72 h-96 rounded-3xl overflow-hidden relative group shadow-sm"
                 style={{ transitionDelay: `${(i % 4) * 90}ms` }}
               >
-                <img src={d.img} alt={d.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src={d.img} alt={`Parcel and freight delivery to ${d.title}, ${d.state}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 
                 <div className="absolute top-4 left-4">
                   <span className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md text-black flex items-center justify-center shadow">
@@ -403,21 +397,21 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
 
               <div className="relative h-96 w-full flex items-center justify-center my-4">
                 <div className="absolute w-44 h-56 rounded-2xl overflow-hidden -rotate-12 -translate-x-12 opacity-80 shadow-md">
-                  <img src="/homepage/coimbatore.png" alt="Delivery truck loading" className="w-full h-full object-cover" />
+                  <img loading="lazy" decoding="async" src="/public/homepage/1.png" alt="Delivery truck being loaded with parcels" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute w-44 h-56 rounded-2xl overflow-hidden rotate-12 translate-x-12 opacity-80 shadow-md">
-                  <img src="/homepage/2.png" alt="Warehouse hub operations" className="w-full h-full object-cover" />
+                  <img loading="lazy" decoding="async" src="/public/homepage/our serviceimg2.png" alt="GRTV hub staff handling parcels in the warehouse" className="w-full h-full object-cover" />
                 </div>
                 <div className="relative z-10 w-52 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                  <img src="/homepage/1.png" alt="Freight forwarding" className="w-full h-full object-cover" />
+                  <img loading="lazy" decoding="async" src="/public/homepage/coimbatore.png" alt="Freight being forwarded by truck across South India" className="w-full h-full object-cover" />
                 </div>
               </div>
 
               <div className="flex justify-center gap-3">
-                <button onClick={handleReviewPrev} aria-label="Previous review" className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-white transition cursor-pointer">
+                <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-white transition">
                   <ChevronLeft className="w-4 h-4 text-gray-600" />
                 </button>
-                <button onClick={handleReviewNext} aria-label="Next review" className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-white transition cursor-pointer">
+                <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-white transition">
                   <ChevronRight className="w-4 h-4 text-gray-600" />
                 </button>
               </div>
@@ -429,13 +423,12 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
                   key={index}
                   className="fade-up transition-all duration-700 opacity-0 translate-y-10 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between relative group hover:shadow-md hover:-translate-y-1"
                   style={{ transitionDelay: `${(index % 6) * 80}ms` }}
-                >
-                  <button aria-label="Dismiss feedback" className="absolute top-4 right-4 text-gray-300 hover:text-gray-500 cursor-pointer">
+                >  <button className="absolute top-4 right-4 text-gray-300 hover:text-gray-500">
                     <X className="w-3.5 h-3.5" />
                   </button>
                   <p className="text-gray-600 text-sm leading-relaxed mb-6">"{r.text}"</p>
                   <div className="flex items-center gap-3">
-                    <img src={r.avatar} alt={r.name} className="w-7 h-7 rounded-full object-cover" />
+                    <img loading="lazy" decoding="async" src={r.avatar} alt={`${r.name}, customer of GRTV Speed Parcel Service`} className="w-7 h-7 rounded-full object-cover" />
                     <div>
                       <h4 className="text-sm font-bold text-gray-900">{r.name}</h4>
                       <span className="text-sm text-gray-400 block">{r.role}</span>
@@ -465,14 +458,15 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
               </div>
 
               <div className="rounded-3xl overflow-hidden h-72 shadow-sm border border-gray-100 mt-2">
-                <img 
-                  src="/homepage/coimbatore.png" 
-                  alt="Delivery truck loading parcels" 
+                <img loading="lazy" decoding="async" 
+                  src="/public/homepage/coimbatore.png" 
+                  alt="GRTV Speed Parcel Service truck loading parcels for delivery" 
                   className="w-full h-full object-cover" 
                 />
               </div>
             </div>
 
+            {/* Shifted the entire right block down via lg:mt-16 */}
             <div className="lg:col-span-7 flex flex-col gap-3.5 lg:mt-16 fade-up transition-all duration-700 opacity-0 translate-y-10" style={{ transitionDelay: '120ms' }}>
               <div className="mb-2">
                 <h3 className="text-sm font-bold text-gray-900 mb-0.5">Didn't see your question?</h3>
@@ -487,7 +481,6 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
                   <div key={i} className="bg-white rounded-2xl shadow-xs border border-gray-100/80 overflow-hidden transition-all duration-200">
                     <button 
                       onClick={() => setOpenFaq(isOpen ? null : i)}
-                      aria-expanded={isOpen}
                       className="w-full p-5 text-left flex justify-between items-center gap-4 hover:bg-gray-50/50 transition cursor-pointer"
                     >
                       <span className="font-semibold text-sm text-gray-900">{f.q}</span>

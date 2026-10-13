@@ -3,8 +3,9 @@ import {
   MapPin, Phone, Mail, Send, ChevronUp, CheckCircle2,
   Facebook, Instagram, Linkedin, Youtube, Twitter,
 } from 'lucide-react';
-import type { MarketingPage } from './SiteHeader';
+import { PAGE_PATHS, handleLinkClick, type MarketingPage } from './SiteHeader';
 import { Select } from '../ui';
+import { SERVICE_AREAS, STATE_AREAS, areaPath, goToPath } from '../../data/serviceAreas';
 
 interface SiteFooterProps {
   onNavigate?: (page: MarketingPage, anchor?: string) => void;
@@ -94,10 +95,11 @@ export default function SiteFooter({ onNavigate, onGetStarted, variant = 'market
 
       {/* Footer */}
       <footer className="bg-white text-ink-900 border-t border-ink-100">
-        <div className={`max-w-[1400px] mx-auto px-4 sm:px-6 py-14 grid gap-10 ${variant === 'marketing' ? 'md:grid-cols-[1.3fr_1fr_1fr]' : 'md:grid-cols-[1.3fr_1fr]'}`}>
+        <div className={`max-w-[1400px] mx-auto px-4 sm:px-6 py-14 grid gap-10 ${variant === 'marketing' ? 'md:grid-cols-[1.3fr_1fr_1.2fr_1fr]' : 'md:grid-cols-[1.3fr_1fr]'}`}>
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <img src="/logo.png" alt="GRTV Speed Parcel Service" className="h-20 w-auto" />
+              <img src="/logo.png" alt="GRTV Speed Parcel Service" className="h-14 w-auto" />
+              <p className="text-[10px] text-ink-500 uppercase tracking-wider">Speed Parcel Service</p>
             </div>
             <p className="text-sm text-ink-600 leading-relaxed max-w-sm mb-5">
               South India's trusted parcel and freight logistics partner across Tamil Nadu, Bengaluru,
@@ -118,13 +120,26 @@ export default function SiteFooter({ onNavigate, onGetStarted, variant = 'market
             <div>
               <p className="text-xs font-bold text-ink-500 uppercase tracking-wider mb-4">Quick Links</p>
               <div className="space-y-2.5 text-sm">
-                <button onClick={() => onNavigate('home')} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">Home</button>
-                <button onClick={() => onNavigate('home', 'services')} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">Services</button>
-                <button onClick={() => onNavigate('about')} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">About Us</button>
-                <button onClick={() => onNavigate('contact')} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">Contact Us</button>
+                <a href={PAGE_PATHS.home} onClick={(e) => handleLinkClick(e, () => onNavigate('home'))} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">Home</a>
+                <a href={`${PAGE_PATHS.home}#services`} onClick={(e) => handleLinkClick(e, () => onNavigate('home', 'services'))} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">Services</a>
+                <a href={PAGE_PATHS.about} onClick={(e) => handleLinkClick(e, () => onNavigate('about'))} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">About Us</a>
+                <a href={PAGE_PATHS.contact} onClick={(e) => handleLinkClick(e, () => onNavigate('contact'))} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">Contact Us</a>
+                <a href={PAGE_PATHS.track} onClick={(e) => handleLinkClick(e, () => onNavigate('track'))} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">Track Shipment</a>
                 <button onClick={onGetStarted} className="block text-ink-600 hover:text-ink-950 transition-colors text-left">
                   {loggedIn ? 'Go to Dashboard' : 'Customer Login'}
                 </button>
+              </div>
+            </div>
+          )}
+
+          {variant === 'marketing' && (
+            <div>
+              <p className="text-xs font-bold text-ink-500 uppercase tracking-wider mb-4">Service Areas</p>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm">
+                {[...STATE_AREAS.map((a) => ({ slug: a.slug, label: a.name })), ...SERVICE_AREAS.map((a) => ({ slug: a.slug, label: a.name }))].map((a) => (
+                  <a key={a.slug} href={areaPath(a.slug)} onClick={(e) => handleLinkClick(e, () => goToPath(areaPath(a.slug)))}
+                    className="block text-ink-600 hover:text-ink-950 transition-colors">{a.label}</a>
+                ))}
               </div>
             </div>
           )}
