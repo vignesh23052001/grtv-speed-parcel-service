@@ -55,14 +55,14 @@ const BENEFITS = [
 
 const CITIES = [
   { title: 'Chennai', state: 'Tamil Nadu', img: '/homepage/Chennai.png' },
-  { title: 'Coimbatore', state: 'Tamil Nadu', img: '/homepage/Coimbatore.png' },
+  { title: 'Coimbatore', state: 'Tamil Nadu', img: '/homepage/coimbatore.png' },
   { title: 'Bengaluru', state: 'Karnataka', img: '/homepage/Bengaluru.png' },
-  { title: 'Madurai', state: 'Tamil Nadu', img: '/homepage/Madurai.png' },
+  { title: 'Madurai', state: 'Tamil Nadu', img: '/homepage/madurai.png' },
   { title: 'Kochi', state: 'Kerala', img: '/homepage/our serviceimg2.png' },
   { title: 'Salem', state: 'Tamil Nadu', img: '/homepage/2.png' },
-  { title: 'Tiruppur', state: 'Tamil Nadu', img: '/homepage/Tiruppur.png' },
+  { title: 'Tiruppur', state: 'Tamil Nadu', img: '/homepage/tiruppur.png' },
   { title: 'Thiruvananthapuram', state: 'Kerala', img: '/homepage/our serviceimg4.png' },
-  { title: 'Erode', state: 'Tamil Nadu', img: '/homepage/Erode.png' },
+  { title: 'Erode', state: 'Tamil Nadu', img: '/homepage/erode.png' },
 ];
 
 const REVIEWS = [
