@@ -24,25 +24,25 @@ const STEPS = [
     step: 'Step 1', 
     title: 'Request a Quote', 
     desc: 'Share your pickup and drop-off details across Tamil Nadu, Bengaluru, or Kerala and get an instant, transparent price.', 
-    img: '/public/homepage/2.png' 
+    img: '/homepage/2.png' 
   },
   { 
     step: 'Step 2', 
     title: 'Schedule Pickup', 
     desc: 'Pick a convenient time slot and our team collects your parcel or freight directly from your doorstep.', 
-    img: '/public/homepage/1.png' 
+    img: '/homepage/1.png' 
   },
   { 
     step: 'Step 3', 
     title: 'Safe Transport', 
     desc: 'Your shipment moves through our tracked hub network with real-time GPS visibility at every stage.', 
-    img: '/public/homepage/our serviceimg2.png' 
+    img: '/homepage/our serviceimg2.png' 
   },
   { 
     step: 'Step 4', 
     title: 'On-Time Delivery', 
     desc: 'OTP-verified proof of delivery straight to the recipient — fast, safe, and always on schedule.', 
-    img: '/public/homepage/our serviceimg4.png' 
+    img: '/homepage/our serviceimg4.png' 
   },
 ];
 
@@ -54,24 +54,24 @@ const BENEFITS = [
 ];
 
 const CITIES = [
-  { title: 'Chennai', state: 'Tamil Nadu', img: '/public/homepage/Chennai.png' },
-  { title: 'Coimbatore', state: 'Tamil Nadu', img: '/public/homepage/Coimbatore.png' },
-  { title: 'Bengaluru', state: 'Karnataka', img: '/public/homepage/Bengaluru.png' },
-  { title: 'Madurai', state: 'Tamil Nadu', img: '/public/homepage/Madurai.png' },
-  { title: 'Kochi', state: 'Kerala', img: '/public/homepage/our serviceimg2.png' },
-  { title: 'Salem', state: 'Tamil Nadu', img: '/public/homepage/2.png' },
-  { title: 'Tiruppur', state: 'Tamil Nadu', img: '/public/homepage/Tiruppur.png' },
-  { title: 'Thiruvananthapuram', state: 'Kerala', img: '/public/homepage/our serviceimg4.png' },
-  { title: 'Erode', state: 'Tamil Nadu', img: '/public/homepage/Erode.png' },
+  { title: 'Chennai', state: 'Tamil Nadu', img: '/homepage/Chennai.png' },
+  { title: 'Coimbatore', state: 'Tamil Nadu', img: '/homepage/Coimbatore.png' },
+  { title: 'Bengaluru', state: 'Karnataka', img: '/homepage/Bengaluru.png' },
+  { title: 'Madurai', state: 'Tamil Nadu', img: '/homepage/Madurai.png' },
+  { title: 'Kochi', state: 'Kerala', img: '/homepage/our serviceimg2.png' },
+  { title: 'Salem', state: 'Tamil Nadu', img: '/homepage/2.png' },
+  { title: 'Tiruppur', state: 'Tamil Nadu', img: '/homepage/Tiruppur.png' },
+  { title: 'Thiruvananthapuram', state: 'Kerala', img: '/homepage/our serviceimg4.png' },
+  { title: 'Erode', state: 'Tamil Nadu', img: '/homepage/Erode.png' },
 ];
 
 const REVIEWS = [
-  { name: 'Karthik Raman', role: 'E-commerce Seller, Coimbatore', text: 'We ship 50+ parcels a day across Tamil Nadu and GRTV has never missed a pickup window. Tracking is spot on.', avatar: '/public/homepage/b1.png' },
-  { name: 'Divya Nair', role: 'Boutique Owner, Kochi', text: 'Doorstep pickup and fair pricing made switching easy. My customers get their orders faster than before.', avatar: '/public/homepage/g1.png' },
-  { name: 'Arjun Sridhar', role: 'Wholesale Trader, Bengaluru', text: 'FTL booking for bulk freight is straightforward and the e-POD proof of delivery keeps our accounts clean.', avatar: '/public/homepage/b2.png' },
-  { name: 'Meena Subramaniam', role: 'Regular Customer, Salem', text: 'I track every parcel from pickup to delivery on my phone. No more calling to ask where my shipment is.', avatar: '/public/homepage/g2.png' },
-  { name: 'Vishnu Prasad', role: 'Textile Exporter, Tiruppur', text: 'Reliable freight forwarding between our Tiruppur warehouse and hubs across the state. Consistent and on time.', avatar: '/public/homepage/b3.png' },
-  { name: 'Lakshmi Priya', role: 'Home Business Owner, Madurai', text: 'Counter booking at the local hub is quick and the staff always explain charges clearly upfront.', avatar: '/public/homepage/g3.png' },
+  { name: 'Karthik Raman', role: 'E-commerce Seller, Coimbatore', text: 'We ship 50+ parcels a day across Tamil Nadu and GRTV has never missed a pickup window. Tracking is spot on.', avatar: '/homepage/b1.png' },
+  { name: 'Divya Nair', role: 'Boutique Owner, Kochi', text: 'Doorstep pickup and fair pricing made switching easy. My customers get their orders faster than before.', avatar: '/homepage/g1.png' },
+  { name: 'Arjun Sridhar', role: 'Wholesale Trader, Bengaluru', text: 'FTL booking for bulk freight is straightforward and the e-POD proof of delivery keeps our accounts clean.', avatar: '/homepage/b2.png' },
+  { name: 'Meena Subramaniam', role: 'Regular Customer, Salem', text: 'I track every parcel from pickup to delivery on my phone. No more calling to ask where my shipment is.', avatar: '/homepage/g2.png' },
+  { name: 'Vishnu Prasad', role: 'Textile Exporter, Tiruppur', text: 'Reliable freight forwarding between our Tiruppur warehouse and hubs across the state. Consistent and on time.', avatar: '/homepage/b3.png' },
+  { name: 'Lakshmi Priya', role: 'Home Business Owner, Madurai', text: 'Counter booking at the local hub is quick and the staff always explain charges clearly upfront.', avatar: '/homepage/g3.png' },
 ];
 
 const FAQS = [
@@ -173,7 +173,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
 
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
             <div className="fade-up transition-all duration-700 opacity-0 translate-y-10 relative rounded-2xl overflow-hidden group h-80 shadow-sm border border-gray-100" style={{ transitionDelay: '100ms' }}>
-              <img loading="lazy" decoding="async" src="/public/homepage/1.png" alt="Freight forwarding service by GRTV Speed Parcel Service" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img loading="lazy" decoding="async" src="/homepage/1.png" alt="Freight forwarding service by GRTV Speed Parcel Service" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-between">
                 <div className="flex justify-end">
                   <span className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
@@ -188,7 +188,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
             </div>
 
             <div className="fade-up transition-all duration-700 opacity-0 translate-y-10 relative rounded-2xl overflow-hidden group h-80 shadow-sm border border-gray-100" style={{ transitionDelay: '200ms' }}>
-              <img loading="lazy" decoding="async" src="/public/homepage/2.png" alt="Warehousing and storage service by GRTV Speed Parcel Service" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img loading="lazy" decoding="async" src="/homepage/2.png" alt="Warehousing and storage service by GRTV Speed Parcel Service" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-between">
                 <div className="flex justify-end">
                   <span className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
@@ -397,13 +397,13 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
 
               <div className="relative h-96 w-full flex items-center justify-center my-4">
                 <div className="absolute w-44 h-56 rounded-2xl overflow-hidden -rotate-12 -translate-x-12 opacity-80 shadow-md">
-                  <img loading="lazy" decoding="async" src="/public/homepage/1.png" alt="Delivery truck being loaded with parcels" className="w-full h-full object-cover" />
+                  <img loading="lazy" decoding="async" src="/homepage/1.png" alt="Delivery truck being loaded with parcels" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute w-44 h-56 rounded-2xl overflow-hidden rotate-12 translate-x-12 opacity-80 shadow-md">
-                  <img loading="lazy" decoding="async" src="/public/homepage/our serviceimg2.png" alt="GRTV hub staff handling parcels in the warehouse" className="w-full h-full object-cover" />
+                  <img loading="lazy" decoding="async" src="/homepage/our serviceimg2.png" alt="GRTV hub staff handling parcels in the warehouse" className="w-full h-full object-cover" />
                 </div>
                 <div className="relative z-10 w-52 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                  <img loading="lazy" decoding="async" src="/public/homepage/coimbatore.png" alt="Freight being forwarded by truck across South India" className="w-full h-full object-cover" />
+                  <img loading="lazy" decoding="async" src="/homepage/coimbatore.png" alt="Freight being forwarded by truck across South India" className="w-full h-full object-cover" />
                 </div>
               </div>
 
@@ -459,7 +459,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
 
               <div className="rounded-3xl overflow-hidden h-72 shadow-sm border border-gray-100 mt-2">
                 <img loading="lazy" decoding="async" 
-                  src="/public/homepage/coimbatore.png" 
+                  src="/homepage/coimbatore.png" 
                   alt="GRTV Speed Parcel Service truck loading parcels for delivery" 
                   className="w-full h-full object-cover" 
                 />
