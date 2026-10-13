@@ -127,7 +127,7 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
           GRTV Speed Parcel Service: Parcel &amp; Freight Transport across Tamil Nadu, Karnataka and Kerala
         </h1>
         <picture>
-          <source media="(max-width: 639px)" srcSet="/heroimage-mobile.png" />
+          <source media="(max-width: 639px)" srcSet="/public/heroimagemobile1.png" />
           <img
             src="/heroimage.png"
             alt="GRTV Speed Parcel Service - parcel and freight transport in Tamil Nadu"
@@ -148,7 +148,6 @@ export default function HomePage({ onGetStarted, onNavigate, onServiceSelect, an
             profileName={profileName}
             profileRole={profileRole}
             onSignOut={onSignOut}
-            transparentAtTop
           />
         </div>
       </section>
